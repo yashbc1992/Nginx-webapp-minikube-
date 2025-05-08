@@ -1,44 +1,49 @@
-# Nginx-webapp-minikube-
+# Simple Helm Chart for Nginx Web App
 
-Running a  Helm chart using Minikube, which is perfect for local Kubernetes development.
-________________________________________
-✅ Step-by-Step: Deploying with Minikube
-________________________________________
-🔹 1. Install Prerequisites
-•	Minikube: https://minikube.sigs.k8s.io/docs/start/
-•	Helm: https://helm.sh/docs/intro/install/
-•	kubectl: https://kubernetes.io/docs/tasks/tools/
-________________________________________
-🔹 2. Start Minikube
-minikube start
-This spins up a local Kubernetes cluster.
-________________________________________
-🔹 3. Enable Minikube Tunnel (for LoadBalancer services)
-Keep this running in a separate terminal.
-________________________________________
-🔹 4. Unzip and Prepare the Helm Chart
-Expand-Archive -Path .\nginx-chart.zip -DestinationPath .
-cd .\nginx-chart
-________________________________________
-🔹 5. (Optional) Modify values.yaml for Minikube
-Change service.type to LoadBalancer if you want to access via external IP:
-yaml
-CopyEdit
-service:
-  type: LoadBalancer
-  port: 80
-________________________________________
-🔹 6. Deploy the Chart
-helm install my-nginx .
-________________________________________
-🔹 7. Check Status
-kubectl get svc
-Then access it at: http://localhost:8080
-________________________________________
-🔹 8. Clean Up
-helm uninstall my-nginx
-minikube stop
-________________________________________
+This is a simple Helm chart to deploy a basic Nginx web server in Kubernetes using Minikube.
 
+## Prerequisites
+
+- Minikube
+- Helm 3
+- kubectl
+
+## Deploying the App
+
+Run the following command to install the app on [Minikube:]
+```bash
+./helm-install.sh
+
+
+####Basic Commands####
+
+# Start a cluster----------------minikube start
+
+# Check status-----------------minikube status
+
+# Open the Kubernetes dashboard-------minikube dashboard
+
+# Stop the cluster-----------------minikube stop
+
+# Delete the cluster---------------minikube delete
+
+#minikube Tunnel---------------Expose LoadBalancer services
+
+################Steps to Install and Run Minikube on EC2#################
+1. Launch an EC2 Instance
+------------------------------------
+Use an Ubuntu-based AMI (e.g., Ubuntu 22.04).
+Instance type: At least t3.medium (2 vCPUs, 4 GB RAM) recommended.
+Enable inbound ports: SSH (22), Kubernetes API (default 8443), and dashboard (optional 30000–32767).
+
+2. Install Prerequisites
+----------------------------------------
+SSH into your EC2 instance and run:
+
+3. Install kubectl
+4. Install Minikube
+5.Start Minikube using Docker driver
+6.Access the Dashboard 
+7.Expose the Minikube dashboard over a public port (e.g., using SSH tunneling or minikube tunnel)..Then access the printed URL in your browser. You may need to update your security group to allow the relevant port.
 
 
