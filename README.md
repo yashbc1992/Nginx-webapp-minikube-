@@ -15,7 +15,7 @@ Run the following command to install the app on [Minikube:]
 ./helm-install.sh
 
 
-####Basic Commands####
+Basic Commands
 
 # Start a cluster----------------minikube start
 
@@ -44,6 +44,6 @@ SSH into your EC2 instance and run:
 4. Install Minikube
 5.Start Minikube using Docker driver
 6.Access the Dashboard 
-7.Expose the Minikube dashboard over a public port (e.g., using SSH tunneling or minikube tunnel)..Then access the printed URL in your browser. You may need to update your security group to allow the relevant port.
+7.Expose the Minikube dashboard over a public port (e.g., using SSH tunneling or minikube tunnel)..Then access the printed URL in your browser. You may need to update your security group to allow the relevant port and can access it at: http://localhost:8080
 
 
